@@ -46,8 +46,8 @@ pub struct Initialize<'info> {
         payer = authority, 
         space = 8 // account discriminator
         + 32 // pubkey
-        + 280 // data, max bytes 280 long
-        + 32 // name, max bytes 32 long
+        + 280 + 4 // data, max bytes 280 long
+        + 32 + 4 // name, max bytes 32 long
     )]
     /// CHECK
     pub wall_account: Account<'info, WallAccount>,
