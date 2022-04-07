@@ -59,12 +59,15 @@
     {
       "code": 6000,
       "name": "IncorrectNameLength",
-      "msg": "make can't be longer than 32 bytes."
+      "msg": "name can't be longer than 32 bytes."
     },
     {
       "code": 6001,
       "name": "IncorrectMessageLength",
       "msg": "message can't be longer than 280 bytes."
     }
-  ]
+  ],
+  "metadata": {
+    "address": "8jERC5W8gmD634eqkLL1oCLPrVvJycxVyCWJhxf3uXvV"
+  }
 }

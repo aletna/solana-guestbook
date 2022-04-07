@@ -8,7 +8,7 @@ type Props = {
 };
 const Heading = ({ wallet, setShowInput, showInput }: Props) => {
   return (
-    <div className="flex justify-between items-center mt-4 p-1 ">
+    <div className="flex justify-between items-center mt-4">
       <div className="text-3xl py-3 text-[#f2e9e4] font-bold ">
         guestbook (devnet)
       </div>

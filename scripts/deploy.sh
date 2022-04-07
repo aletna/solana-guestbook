@@ -22,7 +22,7 @@ if [ $# -eq 1 ]; then
         anchor build
         
         # replace all program ids with new id
-        new_program_pk=`solana-keygen pubkey ./target/deploy/bucket_program-keypair.json`
+        new_program_pk=`solana-keygen pubkey ./target/deploy/solana_wall-keypair.json`
         echo New public key: $new_program_pk
         
         targets=$(find . -type f  -exec grep -lir --include=*.{ts,tsx,rs,toml} $current_program_pk {} +)

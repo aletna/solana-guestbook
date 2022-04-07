@@ -134,7 +134,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-xl mx-auto p-1 md:p-0">
         <Heading
           wallet={wallet}
           setShowInput={setShowInput}

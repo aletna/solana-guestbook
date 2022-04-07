@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use std::str::from_utf8;
 
-declare_id!("316mG717QvYm3SVy93HpK7bYnKCiaTmvsm1buDTqYu9z");
+declare_id!("8jERC5W8gmD634eqkLL1oCLPrVvJycxVyCWJhxf3uXvV");
 
 #[program]
 pub mod solana_wall {
