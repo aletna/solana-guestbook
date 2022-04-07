@@ -1,4 +1,5 @@
 import { WalletContextState } from "@solana/wallet-adapter-react";
+import { PublicKey } from "@solana/web3.js";
 import { shortenAddress } from "../utils/utils";
 import Loading from "./Loading";
 
@@ -8,7 +9,7 @@ type Props = {
   handleInputChange: (e: any) => void;
   author: string;
   handleAuthorChange: (e: any) => void;
-  wallet: WalletContextState;
+  walletPK: PublicKey;
   createPost: (msg: string, name: string) => Promise<void>;
   loading: boolean;
 };
@@ -19,7 +20,7 @@ const Input = ({
   handleInputChange,
   author,
   handleAuthorChange,
-  wallet,
+  walletPK,
   createPost,
   loading,
 }: Props) => {
@@ -48,7 +49,7 @@ const Input = ({
           Your Wallet:{" "}
           {
             // @ts-ignore
-            shortenAddress(wallet.publicKey.toString())
+            shortenAddress(walletPK.toString())
           }
         </div>
         {!loading ? (

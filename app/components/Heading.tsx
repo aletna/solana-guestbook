@@ -14,18 +14,30 @@ const Heading = ({ wallet, setShowInput, showInput }: Props) => {
       </div>
       <div className="hidden md:block">
         {(!wallet || !wallet.publicKey) && (
-          <WalletMultiButton
-            style={{ backgroundColor: "#f2e9e4 !important" }}
-            startIcon={null as any}
-          >
-            <span
-              style={{
-                borderRadius: "4px",
-              }}
-            >
-              Connect Wallet
-            </span>
-          </WalletMultiButton>
+          <>
+            {showInput ? (
+              <WalletMultiButton
+                style={{ backgroundColor: "#f2e9e4 !important" }}
+                startIcon={null as any}
+              >
+                <span
+                  style={{
+                    borderRadius: "4px",
+                  }}
+                >
+                  Connect Wallet
+                </span>
+              </WalletMultiButton>
+            ) : (
+              <button
+                // onClick={() => createPost(wallInput, author)}
+                onClick={() => wallet.disconnect()}
+                className="px-6 bg-black py-3 text-white rounded-lg "
+              >
+                disconnect
+              </button>
+            )}
+          </>
         )}
         {wallet && wallet.publicKey && !showInput && (
           <div className="text-right">

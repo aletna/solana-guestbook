@@ -33,8 +33,11 @@ const Home: NextPage = () => {
   const [loadingTxn, setLoadingTxn] = useState(false);
 
   useEffect(() => {
+    if (wallet.wallet && !wallet.publicKey) {
+      wallet.connect();
+    }
     init();
-  }, [wallet]);
+  }, [wallet, wallet.publicKey]);
 
   const init = async () => {
     if (!WALL_PROGRAM_KEY) return;
@@ -148,7 +151,7 @@ const Home: NextPage = () => {
             handleInputChange={handleInputChange}
             author={author}
             handleAuthorChange={handleAuthorChange}
-            wallet={wallet}
+            walletPK={wallet.publicKey}
             createPost={createPost}
             loading={loadingTxn}
           />
