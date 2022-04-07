@@ -12,6 +12,7 @@ import Input from "../components/Input";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 import { notify_error, notify_success } from "../utils/utils";
+import Loading from "../components/Loading";
 
 const Home: NextPage = () => {
   const connection = useConnection();
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
   const [author, setAuthor] = useState("");
   const [showInput, setShowInput] = useState(true);
   const [loadingTxn, setLoadingTxn] = useState(false);
+  const [loadingMessages, setLoadingMessages] = useState(false);
 
   useEffect(() => {
     if (wallet.wallet && !wallet.publicKey) {
@@ -41,7 +43,7 @@ const Home: NextPage = () => {
 
   const init = async () => {
     if (!WALL_PROGRAM_KEY) return;
-
+    setLoadingMessages(true);
     const _client = new WallClient(
       connection.connection,
       wallet.adapter as any,
@@ -52,6 +54,7 @@ const Home: NextPage = () => {
 
     // GET LATEST POSTS
     await getLatestPosts(_client);
+    setLoadingMessages(false);
   };
 
   const createPost = async (msg: string, name: string) => {
@@ -143,8 +146,7 @@ const Home: NextPage = () => {
           setShowInput={setShowInput}
           showInput={showInput}
         />
-
-        {wallet && wallet.publicKey && showInput && (
+        {wallet && wallet.publicKey && showInput && !loadingMessages && (
           <Input
             closeInput={closeInput}
             wallInput={wallInput}
@@ -156,6 +158,13 @@ const Home: NextPage = () => {
             loading={loadingTxn}
           />
         )}
+
+        {loadingMessages && (
+          <div className="py-3 px-6 ">
+            <Loading light={true} />
+          </div>
+        )}
+
         <Posts posts={posts} handlePostClick={handlePostClick} />
         <ToastContainer />
       </div>
