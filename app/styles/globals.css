@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inconsolata", monospace;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+  background-color: rgb(34, 34, 59);
+}
+
+
+.--engraved {
+  font-size: 80px;
+  /* font-family: Futura; */
+  font-weight: bold;
+  background-color: #666666;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(245, 245, 245, 0.5) 3px 5px 1px;
+}
+
+.--engraved-div {
+  box-shadow: rgba(0, 0, 0, 0.5) inset 3px 5px 2px, rgba(0, 0, 0, 0.5) 0 0 0px;
+  transition: box-shadow 0.2s;
+  border: 2px solid black;
+}
+.--engraved-div:hover {
+  box-shadow: rgba(0, 0, 0, 0.5) inset 0px 0px 0px,
+    rgba(0, 0, 0, 0.5) 2px 4px 5px;
+}
+
+.--shaodow {
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 4px 5px;
+}
+
+.--box {
+  background-color: #f2e9e4;
+  color: rgb(34, 34, 59);
+}
+
+/* 
+  colors palette:
+  #22223b
+  #4a4e69
+  #9a8c98
+  #c9ada7
+  #f2e9e4 
+*/
+
+.wallet-adapter-button {
+  font-family: "Inconsolata", monospace !important;
+  background-color: #f2e9e4 !important;
+  color: #22223b !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center !important;
+  font-weight: normal !important;
+
+  border-radius: 4px;
+
+  padding-left: 1.5rem /* 24px */ !important;
+  padding-right: 1.5rem /* 24px */ !important;
+  padding-top: 0.75rem /* 12px */ !important;
+  padding-bottom: 0.75rem /* 12px */ !important;
+
+  transition: background-color 0.2s !important;
+}
+.wallet-adapter-button:hover {
+  background-color: #c9ada7 !important;
+}

@@ -1,0 +1,14 @@
+[features]
+seeds = false
+[programs.localnet]
+solana_wall = "316mG717QvYm3SVy93HpK7bYnKCiaTmvsm1buDTqYu9z"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "./wall-wallet-dev.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
