@@ -50,7 +50,6 @@ export default class WallClient extends AccountUtils {
     let wallAccount = Keypair.generate();
     const utf8encodedMessage = Buffer.from(message);
     const utf8encodedName = Buffer.from(name);
-    console.log(utf8encodedMessage, utf8encodedName);
 
     // Execute the RPC call
     const tx = await this.wallProgram.rpc.initialize(

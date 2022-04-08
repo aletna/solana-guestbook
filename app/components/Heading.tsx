@@ -13,22 +13,23 @@ const Heading = ({ wallet, setShowInput, showInput }: Props) => {
         guestbook (devnet)
       </div>
       <div className="hidden md:block">
-        {(!wallet || !wallet.publicKey) && (
+        {(!wallet || !wallet.publicKey) && showInput && (
+          <WalletMultiButton
+            style={{ backgroundColor: "#f2e9e4 !important" }}
+            startIcon={null as any}
+          >
+            <span
+              style={{
+                borderRadius: "4px",
+              }}
+            >
+              Connect Wallet
+            </span>
+          </WalletMultiButton>
+        )}
+        {wallet && wallet.publicKey && (
           <>
             {showInput ? (
-              <WalletMultiButton
-                style={{ backgroundColor: "#f2e9e4 !important" }}
-                startIcon={null as any}
-              >
-                <span
-                  style={{
-                    borderRadius: "4px",
-                  }}
-                >
-                  Connect Wallet
-                </span>
-              </WalletMultiButton>
-            ) : (
               <button
                 // onClick={() => createPost(wallInput, author)}
                 onClick={() => wallet.disconnect()}
@@ -36,18 +37,17 @@ const Heading = ({ wallet, setShowInput, showInput }: Props) => {
               >
                 disconnect
               </button>
+            ) : (
+              <div className="text-right">
+                <button
+                  className="px-6 bg-[#f2e9e4] text-[#22223b] py-3 border-2 border-black --shadow hover:bg-[#c9ada7] transition ease-in-out duration-200 rounded-lg "
+                  onClick={() => setShowInput(true)}
+                >
+                  leave message
+                </button>
+              </div>
             )}
           </>
-        )}
-        {wallet && wallet.publicKey && !showInput && (
-          <div className="text-right">
-            <button
-              className="px-6 bg-[#f2e9e4] text-[#22223b] py-3 border-2 border-black --shadow hover:bg-[#c9ada7] transition ease-in-out duration-200 rounded-lg "
-              onClick={() => setShowInput(true)}
-            >
-              leave message
-            </button>
-          </div>
         )}
       </div>
     </div>

@@ -35,11 +35,14 @@ const Home: NextPage = () => {
   const [loadingMessages, setLoadingMessages] = useState(false);
 
   useEffect(() => {
+    init();
+  }, [wallet]);
+
+  useEffect(() => {
     if (wallet.wallet && !wallet.publicKey) {
       wallet.connect();
     }
-    init();
-  }, [wallet, wallet.publicKey]);
+  }, [wallet,wallet.publicKey]);
 
   const init = async () => {
     if (!WALL_PROGRAM_KEY) return;
